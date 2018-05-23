@@ -1,0 +1,156 @@
+@import 'reset.css';
+
+/* Basic HTML
+----------------------------------------------------------------------------------------------------*/
+html, body{
+    height: 100% !important;
+}
+body {
+  font-family: Arial,san-serif;
+  line-height: 1.5;
+  /*display: none; -- Rpeters: this was causing HUGE issue with dynamic CAF in IE9*/
+}
+img{
+    max-width:100%;
+}
+/* ID's
+----------------------------------------------------------------------------------------------------*/
+#for-sale-tr{
+    background:url(../assets/for_sale_tr.png) right top;
+    position:absolute;
+    right:0px;
+    top:0px;
+    width:110px;
+    height:110px;
+}
+.grid_4 li:first-child, .grid_6 li:first-child{
+    height:22px;
+    min-width:137px;
+}
+.grid_4 li:first-child a, .grid_6 li:first-child a{
+    height:22px;
+}
+.grid_6 div, .grid_6 ul {
+    border-right: 1px solid #F0F0F0 !important;
+    border-left: 1px solid #F0F0F0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+}
+
+/*  start the insanity
+-------------------------------------------------*/
+.grid_8 ul{
+    padding:10px 5px 6px 25px; line-height:1.2em;
+}
+.grid_8 li{
+    line-height:1.4em; min-width:137px; margin-bottom:20px;
+}
+.grid_8 li:first-child{
+    height:30px; min-width:137px; margin-bottom:10px; 
+}
+.grid_8 li:first-child a{
+    color:#515151 !important; text-decoration:none;
+}
+.grid_8 li a.adtitle{
+    color:#2200C1; font-size: 1.13em;
+}
+.grid_8 li a.adtitle:hover{
+    color:#c00;
+}
+.grid_8 li span.adtext{
+    color:#515151;
+}
+.adurl{
+    text-decoration: none;
+}
+.grid_8 li a.adurl{
+    font-size:.83em;color:#0E774A;
+}
+.grid_8 li a.adurl:hover{
+    color:#C00;
+}
+/*  end the insanity
+-------------------------------------------------*/
+/*#extended_info_stars{display:inline-block;width:55px;position:relative;top:-1px;height:10px;margin:0px 0px 0px 6px;}
+#extended_info_stars div{width:11px;overflow:hidden;height:9px;float:left;}
+#extended_info_stars .star_on{background:url("/images/stars_graphic.png") no-repeat scroll 0 0 transparent;}
+#extended_info_stars .star_half{background:url("/images/stars_graphic.png") no-repeat scroll -11px 0 transparent;}
+#extended_info_stars .star_off{background:url("/images/stars_graphic.png") no-repeat scroll -22px 0 transparent;}*/
+#extended_info_links{margin:0 0 16px 10px;}
+#extended_info_links td{padding-left:14px;vertical-align:top;}
+#fsBanner{background-image: url("/images/fs_banner_grd.png");background-color:#DB3233;color: #FFFFFF;font-size: 16px;font-weight: bold;height:25px;text-align: center;overflow:hidden; 
+          /* position: absolute; */ 
+          width: 100%; z-index: 10001;}
+#fsBanner a{color:#FFFFFF !important;}
+.simple #fsBanner, .generic #fsBanner{position:relative !important;}
+.modern #fsBanner .Banner .Title{margin: 25px 0 0 125px !important; }
+#fsRibbon{background-image: url("/images/fs_ribbon.png");background-repeat: repeat;height: 135px;position: absolute;right: 0;top: 0;width: 138px;cursor: pointer; z-index: 10001;}
+#fsCorner{background-image: url("/images/for_sale_tr.png");background-repeat: repeat;height: 110px;position: absolute;right: 0;top: 0;width: 110px;cursor: pointer; z-index: 10001;}
+/*  Classes
+----------------------------------------------------------------------------------------------------*/
+.clearElem{
+    clear:both;
+    line-height:.01em;
+    font-size:.01em;
+}
+
+.adtext{display:block;}
+.seller_ratings{display:block;margin:0 0 0px 0px;font-size:.9em;}
+
+.InputText{
+    width: 42%;
+}
+
+#HiddenRelated{
+    /*display:none;*/
+}
+
+.generic .image, .modern .image{
+    display: none;
+}
+
+/* dynamic caf */
+#dynads{
+    width: 90%;
+    margin: 0 auto;
+}
+#dynads iframe{
+    padding: 0px; 
+    margin: 0 auto 0 75px;
+}
+
+#dynimage iframe{
+    margin: 0 auto;
+    max-width: 728px;
+    min-width: 468px;
+}
+.search .grid_8+.grid_4+.grid_12+.grid_8+.grid_4+.grid_12 div.Footer, .search .grid_12+.grid_12+.grid_8+.grid_4+.grid_12 div.Footer,
+.search .grid_8+.grid_4+.grid_12+.grid_8+.grid_4+.grid_12+.grid_12 div.Footer, .search .grid_12+.grid_12+.grid_8+.grid_4+.grid_12+.grid_12 div.Footer {
+    position: relative !important;
+}
+.modern .Title{
+    height: auto !important;
+    padding-bottom: 5px;
+    margin-top:25px !important;
+}
+
+/* center image iframes */
+.grid_12 div#img{
+    width:728px;
+    height: 90px;
+    margin: 0px auto;
+}
+
+/* hotfix */
+.simple .grid_3{
+    min-height:730px;
+}
+.modern .Footer {
+    color: #FFF;
+    font-size: 0.8em;
+}
+.modern .Footer a{
+    color: #FFF;
+    font-size: 0.8em;
+    text-align: left;
+    text-decoration: none;
+}

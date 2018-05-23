@@ -1,0 +1,726 @@
+//vars
+var googleResponse;
+var searchLinks = new Object();
+var resultLinks = "";
+var errorCode = 0;
+var termsDisplayed = "";
+var isAFD = parkingData.isAFD;
+var numAds = 0;
+var popCats = "";
+
+//alter the page on load
+window.onload = function ()
+{
+    inlineReplace();
+}
+
+//google callback
+function google_afd_ad_request_done(google_afd_response) 
+{
+    //set
+    googleResponse = google_afd_response;
+    
+    //return if no response
+    if (!exists(google_afd_response))
+    {
+        errorCode = 1;
+        failover(google_afd_response);
+        return;
+    }
+
+    //alert error
+    if (google_afd_response.error_code)
+    {
+        errorCode = google_afd_response.error_code;
+        failover(google_afd_response);
+        return;
+    }
+
+    //redirect if we"re expecting "clean" but get "adult"
+    if ((parkingData.googleStatus == "Clean") && ((exists(google_afd_response.adult)) && (google_afd_response.adult == "true")))
+    {
+        var location = window.location.href;
+        if (location.indexOf("googleStatus=") == -1)
+        {
+            if (location.indexOf("?") == -1)
+                location += "?googleStatus=1";
+            else
+                location += "&googleStatus=1";
+
+            window.location = location;
+            return;
+        }
+    }
+
+    //redirect if we"re expecting "adult" but get "clean"
+    if ((parkingData.googleStatus == "Adult") && ((exists(google_afd_response.adult)) && (google_afd_response.adult == "false")))
+    {
+        var location = window.location.href;
+        if (location.indexOf("googleStatus=") == -1)
+        {
+            if (location.indexOf("?") == -1)
+                location += "?googleStatus=0";
+            else
+                location += "&googleStatus=0";
+
+            window.location = location;
+            return;
+        }
+    }
+
+    //show message and return if "faillisted" or "needsreview"
+    if (((exists(google_afd_response.needsreview)) && (google_afd_response.needsreview == true)) || ((exists(google_afd_response.faillisted)) && (google_afd_response.faillisted == true)))
+    {
+        failover(google_afd_response);
+        return;
+    }
+
+    //return if no search-links on landing page
+    if ((parkingData.relatedLinks > 0) && ((parkingData.pageType == 1) && (((!exists(google_afd_response.radlinks)) || (google_afd_response.radlinks.length <= 0)))))
+    {
+        failover(google_afd_response);
+        return;
+    }
+
+    //return if no ads on results page
+    if ((parkingData.pageType == 2) && ((!exists(google_afd_response.ads)) || (google_afd_response.ads.length <= 0)))
+    {
+        failover(google_afd_response);
+        return;
+    }
+
+    //have manual search token?
+    if (exists(google_afd_response.search_token))
+    {
+        //set cookie
+        setCookie("googleToken", google_afd_response.search_token);
+    }
+        
+    //build search links
+    buildSearchLinks(google_afd_response);
+
+    //build result links
+    buildResultLinks(google_afd_response);
+
+    //echo response
+    echoGoogleResponse(google_afd_response);
+}
+
+//build search links
+function buildSearchLinks(google_afd_response)
+{
+    var sourceIndex = 0;
+    for (var areaIndex = 0; areaIndex < parkingData.searchLinkAreas.length; areaIndex++)
+    {
+        var destIndex = 0;
+        var areaID = parkingData.searchLinkAreas[areaIndex].divID;
+        if ((google_afd_response.radlinks) && (google_afd_response.radlinks.length > 0))
+        {
+            searchLinks[areaID] = "<span class='label'>" + parkingData.searchLinkAreas[areaIndex].headerText + "</span>";
+            searchLinks[areaID] += "<ul>";
+            var google_radlinks = google_afd_response.radlinks;
+            for (var i = sourceIndex; i < google_radlinks.length; i++)
+            {
+                var className = "i" + (destIndex + 1);
+                if (destIndex == 0)
+                    className += " first";
+                else if (destIndex >= parkingData.searchLinkAreas[areaIndex].maxCount)
+                    className += " last";
+
+                var terms;
+                if (exists(parkingData.terms))
+                    terms = parkingData.terms.split(",");
+
+                var actionCode = getActionCode(terms, google_radlinks[i].term, i);
+                var searchLinkType = getSearchLinkType(terms, google_radlinks[i].term, i);
+
+                searchLinks[areaID] += "<li class='" + className + "'>";
+                searchLinks[areaID] += "<a href='/?s=" + encodeURIComponent(google_radlinks[i].term) + "&ac=" + actionCode + "&slt=" + searchLinkType + "&slr=" + (sourceIndex + 1) + "&lpt=" + parkingData.pageType + "&gdt=" + google_radlinks[i].token + "'><span>" + google_radlinks[i].term + "</span></a>";
+                searchLinks[areaID] += "</li>";
+                sourceIndex++;
+                destIndex++;
+
+                if (termsDisplayed.length > 0)
+                    termsDisplayed += ",";
+                termsDisplayed += google_radlinks[i].term;
+
+                if (destIndex >= parkingData.searchLinkAreas[areaIndex].maxCount)
+                    break;
+            }
+            searchLinks[areaID] += "</ul>";
+        }
+    }
+
+    if ((google_afd_response.categories) && (google_afd_response.categories.length > 0))
+        buildPopularCategories(google_afd_response.categories, google_afd_response.category_token);
+}
+
+//determins action code to log
+function getActionCode(terms, googleTerm, index)
+{
+    if ((exists(terms)) && (terms.length >= (index + 1)) && (terms[index] == googleTerm))
+        return 5;
+    else
+        return 2;
+}
+
+//determins search link type to log
+function getSearchLinkType(terms, googleTerm, index)
+{
+    if ((exists(terms)) && (terms.length >= (index + 1)) && (terms[index] == googleTerm))
+        return 7;
+    else
+        return 8;
+}
+
+//build result links
+function buildResultLinks(google_afd_response)
+{
+    //have ads?
+    if ((google_afd_response.ads) && (google_afd_response.ads.length > 0))
+    {
+        var google_ads = google_afd_response.ads;
+        var haveRepeats = false;
+        isAFD = (google_afd_response.ads[0].url.indexOf("googleadservices.com") != -1) || (google_afd_response.ads[0].url.indexOf("doubleclick.net") != -1);
+
+        resultLinks = "<div class='sr'>"
+        
+        //render header text
+        var headerText = parkingData.adHeader;
+        if (exists(google_afd_response.sponsored_listings_feedback_url))
+            resultLinks += "<h2><a target='_blank' href='" + google_afd_response.sponsored_listings_feedback_url + "'>" + headerText + "</a></h2>";
+        else
+            resultLinks += "<h2>" + headerText + "</h2>";
+
+        //daughter window links?
+        var dw = " target='_blank'";
+
+        //loop through ads
+        resultLinks += "<ul>";
+        for (var i = 0; i < google_ads.length; i++)
+        {
+            //skip repeating ads
+            if ((!isAFD) && (parkingData.repeatingAds == 1) && ((!google_ads[i].position) || (google_ads[i].position != 'Top')))
+            {
+                haveRepeats = true;
+                continue;
+            }
+
+            //determine link class
+            var linkClass = "item_" + (i + 1);
+            if (i == 0)
+                linkClass += " first";
+            else if (i == (google_ads.length - 1))
+                linkClass += " last";
+
+            //render result link
+            renderResultLink(google_ads[i], linkClass, dw, google_ads.length)
+            numAds++;
+        }
+        resultLinks += "</ul>";
+        resultLinks += "</div>";
+
+        //add web result script
+        if (((parkingData.moduleID == 21) || (parkingData.moduleID == 22)) && (!isAFD))
+        {
+            resultLinks += "<div class='" + parkingData.wClass + "' id='webResults'></div>";
+            resultLinks += "<script type='text/javascript' language='JavaScript'>fetchWebResults();</script>";
+        }
+
+        //have repeats?
+        if (haveRepeats)
+        {
+            resultLinks += "<div class='sr'>"
+
+            //render header text
+            headerText = "Sponsored Listings";
+            resultLinks += "<h2>" + headerText + "</h2>";
+
+            //loop through ads
+            resultLinks += "<ul>";
+            for (var i = 0; i < google_ads.length; i++)
+            {
+                //skip non-repeating ads
+                if ((parkingData.repeatingAds == 1) && ((google_ads[i].position) && (google_ads[i].position == 'Top')))
+                    continue;
+
+                //determine link class
+                var linkClass = "item_" + (i + 1);
+                if (i == 0)
+                    linkClass += " first";
+                else if (i == (google_ads.length - 1))
+                    linkClass += " last";
+
+                //render result link
+                renderResultLink(google_ads[i], linkClass, dw, google_ads.length)
+            }
+            resultLinks += "</ul>";
+            resultLinks += "</div>";
+        }
+    }
+}
+
+//renders single result link
+function renderResultLink(ad, linkClass, dw, adCount)
+{
+    var loggingUrl = buildLoggingUrl(ad.n, adCount, parkingData.resultLinkType, ad.visible_url);
+
+    var abs = ad.line2;
+    if (ad.line3)
+        abs += " " + ad.line3;
+
+    resultLinks += "<li class='" + linkClass + "'>";
+
+    if (parkingData.adLineFormat == 2) 
+    {
+        resultLinks += "<a class='title' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.line1 + "</a>";
+        resultLinks += "<a class='url' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.visible_url + "</a>";
+        resultLinks += "<p class='abstract'>" + abs + "</p>";
+    }
+    else 
+    {
+        //resultLinks += "<a class='title' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.line1 + "</a>";
+        //resultLinks += "<br />";
+        //resultLinks += "<span class='abstractNoClick'>" + abs + "</span>";
+        //resultLinks += "<br />";
+        //resultLinks += "<a class='url' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.visible_url + "</a>";
+        resultLinks += "<a class='title' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.line1 + "</a>";
+        resultLinks += "<p class='abstract'>" + abs + "</p>";
+        resultLinks += "<a class='url' onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.url + "'" + dw + ">" + ad.visible_url + "</a>";
+    }
+
+    try 
+    {
+        if (exists(ad.seller_ratings))
+        {
+            if (exists(ad.seller_ratings.text) && exists(ad.seller_ratings.rating_img_url) && exists(ad.seller_ratings.source_url) && exists(ad.seller_ratings.rating))
+            {
+                //version 2
+                sellerRatingText = ad.seller_ratings.text;
+                sellerRatingImgUrl = ad.seller_ratings.rating_img_url;
+                sellerRatingUrl = ad.seller_ratings.source_url;
+
+                sellerRating = sellerRatingText.replace("{{RATING}}", "<img alt='" + ad.seller_ratings.rating + " of out 5' src='" + sellerRatingImgUrl + "' />");
+                sellerRating = sellerRating.replace("{{LINK_START}}", "<a class='source_url' href='" + sellerRatingUrl + "' target='_blank'>");
+                sellerRating = sellerRating.replace("{{LINK_END}}", "</a>");
+
+                resultLinks += "<p class='sellerRatings'>" + sellerRating + "</p>";
+            }
+        }
+    }
+    catch (error) 
+    {
+    }
+
+    if (exists(ad.sitelinks))
+    {
+        resultLinks += "<div class='siteLinks'>";
+        if (ad.sitelinks.length > 0)
+        {
+            resultLinks += "<ul class='col1'>";
+            for (j = 0; j < ad.sitelinks.length; j = j + 2)
+            {
+                loggingUrl = buildLoggingUrl(ad.n, adCount, parkingData.resultLinkType, ad.visible_url);
+                resultLinks += "<li><a " + dw + " onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.sitelinks[j].url + "'>" + ad.sitelinks[j].link_text + "</a></li>";
+            }
+            resultLinks += "</ul>";
+        }
+        if (ad.sitelinks.length > 1)
+        {
+            resultLinks += "<ul class='col2'>";
+            for (j = 1; j < ad.sitelinks.length; j = j + 2)
+            {
+                loggingUrl = buildLoggingUrl(ad.n, adCount, parkingData.resultLinkType, ad.visible_url);
+                resultLinks += "<li><a " + dw + " onclick='return trackClick(\"" + loggingUrl + "\");' href='" + ad.sitelinks[j].url + "'>" + ad.sitelinks[j].link_text + "</a></li>";
+            }
+            resultLinks += "</ul>";
+        }
+        resultLinks += "</div>";
+    }
+
+    resultLinks += "</li>";
+}
+
+//write status message
+function writeStatus(message)
+{
+    try
+    {
+        document.getElementById('status').innerHTML = '<p>' + message + '</p>';
+    }
+    catch(e)
+    {
+    }
+}
+
+//build logging url
+function buildLoggingUrl(rank, sponsoredCount, resultLinkType, visibleUrl)
+{
+    var url = '/clickLog?ck=' + encodeURIComponent(parkingData.cacheKey)
+        + '&d=' + encodeURIComponent(parkingData.domainName)
+        + '&aid=' + encodeURIComponent(parkingData.adNetworkID)
+        + '&r=' + encodeURIComponent(rank)
+        + '&rc=' + encodeURIComponent(sponsoredCount)
+        + '&rlt=' + encodeURIComponent(resultLinkType)
+        + '&du=' + encodeURIComponent(stripHTML(visibleUrl))
+        + '&afd=' + isAFD;
+    return url;
+}
+
+//strip html markup from string
+function stripHTML(oldString)
+{
+    var newString = '';
+    var inTag = false;
+    for (var i = 0; i < oldString.length; i++)
+    {
+        if (oldString.charAt(i) == '<')
+            inTag = true;
+        if (oldString.charAt(i) == '>')
+        {
+            if (oldString.charAt(i + 1) == '<')
+            {
+                //dont do anything
+            }
+            else
+            {
+                inTag = false;
+                i++;
+            }
+        }
+
+        if (!inTag)
+            newString += oldString.charAt(i);
+
+    }
+
+    return newString;
+}
+
+//does object exist?
+function exists(x)
+{
+    if (typeof (x) == 'undefined')
+        return false;
+    if (x == null)
+        return false;
+    if (x === '')
+        return false;
+    return true;
+}
+
+//set cookie
+function setCookie(Name, Value)
+{
+    var ArgumentCount;
+    var ArgumentValues;
+    var Domain;
+    var Expires;
+    var Path;
+    var Secure;
+
+    ArgumentValues = setCookie.arguments;
+    ArgumentCount = setCookie.arguments.length;
+
+    Expires = (ArgumentCount > 2) ? ArgumentValues[2] : null;
+    Path = (ArgumentCount > 3) ? ArgumentValues[3] : null;
+    Domain = (ArgumentCount > 4) ? ArgumentValues[4] : null;
+    Secure = (ArgumentCount > 5) ? ArgumentValues[5] : false;
+
+    document.cookie = Name + '=' + escape(Value) +
+        ((Expires == null) ? '' : ('; expires=' + Expires.toGMTString())) +
+        ((Path == null) ? '' : ('; path=' + Path)) +
+        ((Domain == null) ? '' : ('; domain=' + Domain)) +
+        ((Secure == true) ? '; secure' : '');
+}
+
+//get cookie
+function getCookie(Name)
+{
+    var Argument;
+    var ArgumetLength;
+    var CookieLength;
+    var EndString;
+    var i;
+    var j;
+
+    Argument = Name + '=';
+    ArgumentLength = Argument.length;
+    CookieLength = document.cookie.length;
+    i = 0;
+    while (i < CookieLength)
+    {
+        j = i + ArgumentLength;
+        if (document.cookie.substring(i, j) == Argument)
+        {
+            EndString = document.cookie.indexOf(';', j);
+            if (EndString == -1)
+                EndString = document.cookie.length;
+            return unescape(document.cookie.substring(j, EndString));
+        }
+        i = document.cookie.indexOf(' ', i) + 1;
+        if (i == 0)
+            break;
+    }
+    return (null);
+}
+
+//delete cookie
+function deleteCookie(Name)
+{
+    var CookieValue;
+    var ExpirationDate;
+
+    ExpirationDate = new Date();
+    ExpirationDate.setTime(ExpirationDate.getTime() - 1);
+
+    CookieValue = getCookie(Name);
+    if (CookieValue != null)
+        setCookie(Name, '', ExpirationDate, '/');
+}
+
+//failover
+function failover(google_afd_response)
+{
+    //echo response
+    echoGoogleResponse(google_afd_response);
+    
+    var location = window.location.href;
+    if (location.indexOf('?') == -1)
+    {
+        location += '?ai=' + (parseInt(parkingData.apiIteration) + parseInt(1));
+    }
+    else
+    {
+        var split = location.split('?');
+        location = split[0];
+        var query = split[1];
+        var params = query.split('&');
+        var itemsWritten = 0;
+        for (i = 0; i < params.length; i++)
+        {
+            if (params[i].indexOf('ai=') == -1)
+            {
+                if (itemsWritten == 0)
+                    location += '?' + params[i];
+                else
+                    location += '&' + params[i];
+                itemsWritten++;
+            }
+        }
+        if (itemsWritten == 0)
+            location += '?ai=' + (parseInt(parkingData.apiIteration) + parseInt(1));
+        else
+            location += '&ai=' + (parseInt(parkingData.apiIteration) + parseInt(1));
+        itemsWritten++;
+    }
+
+    if (location != window.location.href)
+        window.location = location;
+}
+
+//echo google response
+function echoGoogleResponse(google_afd_response)
+{
+    try
+    {
+        var url = '/GoogleListener.aspx';
+        if (isAFD)
+            url += '?rt=afd';
+        else
+            url += '?rt=afs';
+        url += '&pt=' + encodeURIComponent(parkingData.pageType)
+            + '&rid=' + encodeURIComponent(parkingData.requestGuid)
+            + '&dn=' + encodeURIComponent(parkingData.domainName)
+            + '&st=' + encodeURIComponent(parkingData.searchText)
+            + '&aid=' + encodeURIComponent(parkingData.adNetworkID)
+            + '&ec=' + encodeURIComponent(errorCode)
+            + '&ippi=' + encodeURIComponent(parkingData.ippiClassification);
+        var str = JSON.stringify(google_afd_response);
+
+        var http = createXMLHttpRequest();
+        if (http != null)
+        {
+            http.open('POST', url, true);
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            http.setRequestHeader('Content-length', str.length);
+            http.setRequestHeader('Connection', 'close');
+            http.send(str);
+        }
+    }
+    catch (e)
+    {
+    }
+}
+
+//create xml http request object
+function createXMLHttpRequest()
+{
+    try { return new ActiveXObject('Msxml2.XMLHTTP'); } catch (e) { }
+    try { return new ActiveXObject('Microsoft.XMLHTTP'); } catch (e) { }
+    try { return new XMLHttpRequest(); } catch (e) { }
+    return null;
+}
+
+
+//fetches web results via call to parking interface and renders to AFS_JS page
+function fetchWebResutls()
+{
+    //build request
+    var request = "/interface/6/?mode=wr&outputType=json"
+         + "&dn=" + encodeURIComponent(parkingData.domainName)
+         + "&st=" + encodeURIComponent(parkingData.searchText)
+         + "&num=" + encodeURIComponent(numAds)
+         + "&ia=" + encodeURIComponent(parkingData.adultTag)
+         + "&hl=" + encodeURIComponent(parkingData.hl)
+         + "&cip=" + encodeURIComponent(parkingData.cip)
+         + "&ref=" + encodeURIComponent(document.referrer)
+         + "&ua=" + encodeURIComponent(navigator.userAgent);
+
+    //create http object
+    var http = createXMLHttpRequest();
+    if (http != null)
+    {
+        http.open('GET', request, true);
+        http.setRequestHeader('Connection', 'close');
+
+        //define callback function
+        http.onreadystatechange = function ()
+        {
+            //response complete
+            if (http.readyState == 4)
+            {
+                //evaluate response to json object
+                var webResults = eval("(" + http.responseText + ")");
+
+                //render web results to page
+                renderWebResults(webResults);
+            }
+        }
+
+        //send ajax request
+        http.send(null);
+    }
+}
+
+//renders web results
+function renderWebResults(webResults)
+{
+    //have web results?
+    if ((webResults) && (webResults.webResults) && (webResults.webResults.length > 0))
+    {
+        //find output div
+        var div = document.getElementById("webResults");
+        if (div)
+        {
+            //daughter window?
+            var dw = " target='_blank'";
+
+            //write header
+            var html = "<h2>Web Results</h2>";
+
+            //open list
+            html += "<ul>";
+
+            //loop through web results
+            for (var i = 0; i < webResults.webResults.length; i++)
+            {
+                //enough?
+                if (i >= numAds)
+                    break;
+                
+                //determine link class
+                var linkClass = "";
+                if (i == 0)
+                    linkClass += "first";
+                else if (i == (webResults.webResults.length - 1))
+                    linkClass += "last";
+                html += "<li class='" + linkClass + "'>";
+
+                //build click url
+                var loggingUrl = buildLoggingUrl(i + 1, 10, webResults.webResults[i].resultLinkType, webResults.webResults[i].displayUrl, false);
+
+                //title
+                html += "<a class='title'" + dw + " onclick='return trackClick(\"" + loggingUrl + "\");' href='" + webResults.webResults[i].clickUrl + "' " + ">" + webResults.webResults[i].title + "</a>";
+
+                //two line or three?
+                if (parkingData.wClass != "wr")
+                {
+                    //url
+                    html += "<a class='url'" + dw + " onclick='return trackClick(\"" + loggingUrl + "\");' href='" + webResults.webResults[i].clickUrl + "'>" + webResults.webResults[i].displayUrl + "</a>";
+
+                    //abstract
+                    html += "<p class='abstract'>" + webResults.webResults[i].abs + "</p>";
+                }
+                else
+                {
+                    //abstract
+                    html += "<p class='abstract'>" + webResults.webResults[i].abs + "</p>";
+
+                    //url
+                    html += "<a class='url'" + dw + " onclick='return trackClick(\"" + loggingUrl + "\");' href='" + webResults.webResults[i].clickUrl + "'>" + webResults.webResults[i].displayUrl + "</a>";
+                }
+
+                html += "</li>";
+            }
+            html += "</ul>";
+            div.innerHTML = html;
+        }
+    }
+}
+
+function buildPopularCategories(categories, categoryToken)
+{
+    popCats += "<div class='content'>";
+
+    var index = 1;
+    for (i = 0; i < categories.length; i++)
+    {
+        if ((i == 0) || (i == 3) || (i == 6) || (i == 9))
+        {
+            popCats += "<div class='column'>";
+        }
+
+        popCats += "<div class='group'>";
+        popCats += "<div class='itemHeader'>" + buildPopCatLink(categories[i].term, categoryToken, index) + "</div>";
+        index++;
+        for (k = 0; k < categories[i].subcategories.length; k++)
+        {
+            popCats += "<div class='item'>" + buildPopCatLink(categories[i].subcategories[k].term, categoryToken, index) + "</div>";
+            index++;
+        }
+        popCats += "</div>";
+
+
+
+        if ((i == 2) || (i == 5) || (i == 8) || (i == 11))
+        {
+            popCats += "</div>";
+        }
+    }
+    
+    popCats += "</div>";
+}
+
+function buildPopCatLink(term, categoryToken, index)
+{
+    return "<a href='/?s=" + encodeURIComponent(term) + "&ac=3&slt=9&slr=" + index + "&lpt=" + parkingData.pageType + "&gdt=" + categoryToken + "'>" + term + "</a>";
+}
+
+function inlineReplace()
+{
+    if (exists(googleResponse.related_searches_feedback_url))
+    {
+        var rsLinkTopBar = document.getElementById('rsLinkTopBar');
+        if (exists(rsLinkTopBar))
+            rsLinkTopBar.innerHTML = "<p><a target='_blank' href='" + googleResponse.related_searches_feedback_url + "'>Related Searches</a></p>";
+
+        var rsLinkFooter = document.getElementById('rsLinkFooter');
+        if (exists(rsLinkFooter))
+            rsLinkFooter.innerHTML = "<span><a target='_blank' href='" + googleResponse.related_searches_feedback_url + "'>RELATED SEARCHES: </a></span>";
+
+        var rsLinkHdr = document.getElementById('rsLinkHdr');
+        if (exists(rsLinkHdr))
+            rsLinkHdr.innerHTML = "<a target='_blank' href='" + googleResponse.related_searches_feedback_url + "'>Related Searches:</a>";
+    }
+}
