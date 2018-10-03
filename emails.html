@@ -1,129 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Emails| Sabrina Hanapiah</title>
-  <meta name="author" content="Sabrina Hanapiah">
-  <meta name="description" content="Front-end web developer designing, developing, and doing in NYC." />
-  <meta name="keywords" content="front-end web development, NYC">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="css/screen.css" media="screen">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <![endif]-->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+---
+layout: default
+title: HTML emails
+permalink: /emails
+exclude: true
+---
 
-    ga('create', 'UA-40276253-1', 'auto');
-    ga('send', 'pageview');
+{% for work in site.data.emails %}
+<div class="project-description">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Background</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<p>{{ work.project-description }}</p>
+		</div>
+		<div class="col-md-6">
+			<h3>Skills</h3>
+			<ul class="project-specs">
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>Email service provider quirks</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-  </script>
-</head>
-<body>
-  <!--  nav -->
-  <nav>
-    <div class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">SABRINA<br>HANAPIAH</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse cl-effect-3" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!--  /nav -->
-
-  <!-- main content -->
-  <div class="container">
-    <h1>Work</h1>
-    <div class="row">
-      <div class="col-md-12">
-
-        <!-- .project-specs -->
-        <div class="project-specs">
-          <div class="row">
-            <div class="col-md-6">
-              <h3 class="project-specs__heading">Project</h3>
-              <p>Emails</p>
-
-              <h3 class="project-specs__heading">Background</h3>
-              <p>I've worked with big companies from NYRR to <a href="http://nullrefer.com/?https://www.jet.com" target="_blank">Jet.com</a>, leading the email production of campaigns sent daily and seen by thousands. From leading a company's email system transition to using responsive, mobile friendly email templates to debugging and ensuring emails render the same across email clients to supporting customized webfont usgage and retina images in email designs, I have a multitude of HTML email experience. </p>
-
-              <p>Currently, I work at D3 NYC as leading the HTML email production for Jet.com's email campaigns. Here I've worked to implement new features in their emails including using customized webfonts, GIF fallbacks, dynamic content, retina screen optimization and deeplinking. An HTML templating engine, Pug, is used for faster and consistent  development across all email templates. In addition, I oversee all email template changes and help consult design with best practices for image optimization for email.</p>
-            </div><!-- /.col-md-6 -->
-
-            <div class="col-md-6">
-              <h3 class="project-specs__heading">Skills</h3>
-              <ul class="project-specs__list-skills">
-                <li>HTML</li>
-                <li>CSS</li>
-              </ul>
-            </div><!-- /.col-md-6 -->
-          </div><!-- /.row -->
-        </div><!-- /.project-specs -->
-
-        <!-- .project-visuals -->
-        <div class="project-visuals">
-          <div class="row">
-            <div class="col-md-4">
-              <a href="jet-welcome.html" target="_blank"><img class="project-visuals__img img-responsive" src="img/jet-welcome.png" alt=""></a>
-            </div>
-            <div class="col-md-4">
-              <a href="jet-social.html" target="_blank"><img class="project-visuals__img img-responsive" src="img/jet-social.png" alt=""></a>
-            </div>
-            <div class="col-md-4">
-              <a href="jet-livetext.html" target="_blank"><img class="project-visuals__img img-responsive" src="img/jet-livetext.png" alt=""></a>
-            </div>
-            <div class="col-md-4">
-              <a href="NYRR-email.html" target="_blank"><img class="project-visuals__img img-responsive" src="img/NYRR-email.png" alt=""></a>
-            </div>
-          </div>
-
-        </div><!-- .project-visuals -->
-
-      </div><!-- /.col-md-12 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-  <!-- /main-content -->
-
-  <!-- .footer -->
-  <footer class="footer">
-    <div class="container">
-      <h4 class="footer-heading">Contact</h4>
-      <ul class="list-unstyled">
-        <li>Sabrina Hanapiah</li>
-        <li>Front-End Web Developer</li>
-        <li>Brooklyn, NY</li>
-        <li><a href="mailto:sabrinahanapiah@gmail.com">sabrinahanapiah@gmail.com</a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- /.footer -->
-
-  <!-- .copyright -->
-  <div class="copyright">
-    <div class="container">
-      <p class="text-center">Made with <span class="glyphicon glyphicon-heart-empty"></span> by Sabrina Hanapiah</p>
-    </div>
-  </div><!-- /.copyright -->
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<div class="row">
+	<div class="col-lg-4">
+		<a href="{{ work.link }}">
+			<img class="project-screenshot img-fluid" src="../{{ work.img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-4">
+		<a href="{{ work.secondary-link }}">
+			<img class="project-screenshot img-fluid" src="../{{ work.secondary-img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-4">
+		<a href="{{ work.tertiary-link }}">
+			<img class="project-screenshot img-fluid" src="../{{ work.tertiary-img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-4">
+		<a href="{{ work.tertiary-link }}">
+			<img class="project-screenshot img-fluid" src="../{{ work.tertiary-img }}" alt="">
+		</a>
+	</div>
+</div>
+{% endfor %}

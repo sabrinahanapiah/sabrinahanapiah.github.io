@@ -1,0 +1,7 @@
+- title: Bucks County Classic
+  project-description: I was reponsible for coding the front-end of the Bucks County Classic website. This website was created using Craft CMS, and coded using Twig, the templating engine native to the CMS. SASS was used to organize the CSS styling and jQuery to code simple slider functions.
+  img: assets/_img/bcc-phone-mockup.png
+  secondary-img: assets/_img/bcc-thumbnail.png
+  project-link: /bcc
+  link-appearance: http://buckscountyclassic.com
+  link: http://nullrefer.com/?http://buckscountyclassic.com/

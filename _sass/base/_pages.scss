@@ -1,0 +1,37 @@
+/*---------------
+  ERROR
+---------------*/
+
+.error-content {
+	background-color: $navy;
+	color: $white;
+	font-family: $primary-font;
+	font-size: $font-size-base;
+	line-height: 1.8;
+
+	.row {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+
+	h1 {
+		color: $white;
+		font-size: ($font-size-base * 12);
+		line-height: 1.2;
+		margin-top: 0.6em;
+		margin-bottom: 0.3em;
+
+		&:after {
+			@include shortUnderline($white);
+			width: 70px;
+			border-width: 15px;
+		}
+	}
+
+	a {
+		color: $white;
+		text-decoration: underline;
+	}
+}
+

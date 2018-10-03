@@ -1,0 +1,29 @@
+---
+layout: default
+title: Work
+description: I code a range of front-end development work and have experience from websites to email and web apps.
+permalink: /work/
+---
+
+<div class="row">
+	<div class="col-md-9">
+		<h1>{{ page.title }}</h1>
+		<p>{{ page.description }}</p>
+	</div>
+</div>
+
+<div class="row work-row">
+	{% for work in site.data.work %}
+	<div class="col-lg-6">
+		<a href="{{ work.project-link }}">
+			<div class="work-thumbnail">
+				<img class="img-fluid" src="../{{ work.img }}" alt="">
+				<div class="work-thumbnail-caption">
+					<h2>{{ work.title }}</h2>
+					<p>{{ work.text }}</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>

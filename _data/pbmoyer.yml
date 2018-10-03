@@ -1,0 +1,8 @@
+- title: Paul B Moyer Website
+  project-description: I was reponsible for coding the front-end of the Paul B moyer website. This website was created using Craft CMS, and coded using Twig, the templating engine native to the CMS. jQuery was used to code simple menu & slider functions.
+  img: assets/_img/pbmoyer-animation.gif
+  secondary-img: assets/_img/pbmoyer-service.png
+  tertiary-img: assets/_img/pbmoyer-equipment.png
+  project-link: /pbmoyer
+  link-appearance: www.paulbmoyer.com
+  link: http://nullrefer.com/?http://paulbmoyer.com/

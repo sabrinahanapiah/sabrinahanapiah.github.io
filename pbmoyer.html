@@ -1,122 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Paul B Moyer | Sabrina Hanapiah</title>
-  <meta name="author" content="Sabrina Hanapiah">
-  <meta name="description" content="Front-end web developer designing, developing, and doing in NYC." />
-  <meta name="keywords" content="front-end web development, NYC">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="css/screen.css" media="screen">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <![endif]-->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+---
+layout: default
+title: Paul B Moyer Website
+permalink: /pbmoyer
+exclude: true
+---
 
-    ga('create', 'UA-40276253-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-</head>
-<body>
-  <!--  nav -->
-  <nav>
-    <div class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">SABRINA<br>HANAPIAH</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse cl-effect-3" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!--  /nav -->
-
-  <!-- main content -->
-  <div class="container">
-    <h1>Work</h1>
-    <div class="row">
-      <div class="col-md-12">
-
-        <!-- .project-specs -->
-        <div class="project-specs">
-          <div class="row">
-            <div class="col-md-6">
-              <h3 class="project-specs__heading">Project</h3>
-              <p>Paul B Moyer</p>
-
-              <h3 class="project-specs__heading">Background</h3>
-              <p>Built the front-end of Paul B Moyer website.</p>
-            </div><!-- /.col-md-6 -->
-
-            <div class="col-md-6">
-              <h3 class="project-specs__heading">Skills</h3>
-              <ul class="project-specs__list-skills">
-                <li>Responsive web development</li>
+{% for work in site.data.pbmoyer %}
+<div class="project-description">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Background</h1>
+			<p>{{ work.project-description }}</p>
+		</div>
+		<div class="col-md-6">
+			<h3>Skills</h3>
+			<ul class="project-specs">
+				<li>Responsive web development</li>
                 <li>Bootstrap</li>
                 <li>jQuery</li>
                 <li>Craft</li>
-              </ul>
-              <h3 class="project-specs__heading">Link</h3>
-              <p><a href="http://nullrefer.com/?http://http://paulbmoyer.com/" target="_blank">www.paulbmoyer.com</a></p>
-            </div><!-- /.col-md-6 -->
-          </div><!-- /.row -->
-        </div><!-- /.project-specs -->
+			</ul>
+			<h3>Link</h3>
+			<a class="project-link" href="{{ work.link }}">{{ work.link-appearance }}</a>
+		</div>
+	</div>
+</div>
 
-        <!-- .project-visuals -->
-        <div class="project-visuals">
-          <div class="row">
-            <div class="col-md-12">
-              <a href="http://nullrefer.com/?http://paulbmoyer.com/" target="_blank"><img class="project-visuals__img img-responsive" src="img/pbmoyer-animation.gif" alt="project page"></a>
-              <a href="http://nullrefer.com/?http://paulbmoyer.com/" target="_blank"><img class="project-visuals__img img-responsive" src="img/pbmoyer-service.png" alt="project page"></a>
-            </div>
-          </div>
-        </div><!-- .project-visuals -->
+<div class="row">
+	<div class="col-lg-12">
+		<a href="#image1">
+			<img class="project-screenshot img-fluid" src="../{{ work.img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-12">
+		<a href="#image2">
+			<img class="project-screenshot img-fluid" src="../{{ work.secondary-img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-12">
+		<a href="#image3">
+			<img class="project-screenshot img-fluid" src="../{{ work.tertiary-img }}" alt="">
+		</a>
+	</div>
+</div>
 
-      </div><!-- /.col-md-12 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-  <!-- /main-content -->
-
-  <!-- .footer -->
-  <footer class="footer">
-    <div class="container">
-      <h4 class="footer-heading">Contact</h4>
-      <ul class="list-unstyled">
-        <li>Sabrina Hanapiah</li>
-        <li>Front-End Web Developer</li>
-        <li>Brooklyn, NY</li>
-        <li><a href="mailto:sabrinahanapiah@gmail.com">sabrinahanapiah@gmail.com</a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- /.footer -->
-
-  <!-- .copyright -->
-  <div class="copyright">
-    <div class="container">
-      <p class="text-center">Made with <span class="glyphicon glyphicon-heart-empty"></span> by Sabrina Hanapiah</p>
-    </div>
-  </div><!-- /.copyright -->
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<div class="project-lightbox-row row">
+	<div class="col-lg-12">
+		<a href="#_" class="project-lightbox" id="image1">
+			<img class="img-fluid" src="../{{ work.img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-12">
+		<a href="#_" class="project-lightbox" id="image2">
+			<img class="img-fluid" src="../{{ work.secondary-img }}" alt="">
+		</a>
+	</div>
+	<div class="col-lg-12">
+		<a href="#_" class="project-lightbox" id="image3">
+			<img class="img-fluid" src="../{{ work.tertiary-img }}" alt="">
+		</a>
+	</div>
+</div>
+{% endfor %}

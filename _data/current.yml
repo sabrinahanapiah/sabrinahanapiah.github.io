@@ -1,0 +1,9 @@
+- title: D3 website
+  project-description: The new website for D3 was coded using React since a handful of components are reused throughout the site.
+  secondary-link:
+  img: assets/_img/d3-thumbnail.gif
+  secondary-img: assets/_img/cj-feature.png
+  third-img: assets/_img/cj-thumbnail.png
+  project-link: /current
+  link-appearance: http://d3-nyc.com
+  link: http://nullrefer.com/?http://d3-nyc.com

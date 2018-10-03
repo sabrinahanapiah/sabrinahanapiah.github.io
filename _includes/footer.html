@@ -1,0 +1,17 @@
+<footer class="footer h-card">
+  <div class="container">
+    <div class="col-md-12">
+      <data class="u-url" href="{{ "/" | relative_url }}"></data>
+        <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
+          <div class="footer-col footer-col-1">
+            <h3>Contact</h3>
+            <ul class="contact-list">
+                <li>{{ site.author_first_name }}&nbsp;{{ site.author_last_name }}</li>
+                <li>{{ site.role }}</li>
+                <li>{{ site.location }}</li>
+            </ul>
+            <a class="footer-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+      </div>
+  </div>
+</footer>

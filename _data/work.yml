@@ -1,0 +1,54 @@
+# Controls the projects shown on the home page.
+- title: D3 website
+  text: Coded using SASS, React.js and Gatbsy as a static site generator
+  img: assets/_img/d3-thumbnail.gif
+  project-link: /current
+  link: http://nullrefer.com/?http://d3-nyc.com
+
+- title: Crowdjoy
+  text: Coded a responsive site for an event app platform
+  img: assets/_img/cj-thumbnail.gif
+  project-link: /crowdjoy
+  link:
+
+- title: Bucks County Classic
+  text: Coded the front-end for the Bucks County Classics website
+  img: assets/_img/bcc-thumbnail.png
+  project-link: /bcc
+  link: http://nullrefer.com/?http://buckscountyclassic.com/
+
+- title: Paul B Moyer
+  text: Built the front-end template for paulbmoyer.com
+  img: assets/_img/pbmoyer-animation.gif
+  project-link: /pbmoyer
+  link: http://nullrefer.com/?http://www.paulbmoyer.com
+
+- title: Spotify Player API
+  text: Coded a visual player using Spotify's API
+  img: assets/_img/spotify-api-screenshot.png
+  project-link: /spotify-player
+  link: http://hi-spotify.herokuapp.com
+
+- title: GNL
+  text: Crafted a new, responsive website for Global Net Lease (NYSE:GNL)
+  img: assets/_img/GNL-homepage.png
+  project-link: /gnl
+  link: http://nullrefer.com/?http://globalnetlease.com/
+
+- title: Skywalls
+  text: Built a pixel-perfect website that implements features such as a preloader, responsive image carousels, 'ken burns' transitions & more
+  img: assets/_img/skywalls-thumbnail.png
+  project-link: /skywalls
+  link: http://nullrefer.com/?http://skywalls.com/
+
+- title: Email Development
+  text: Coded and ensured all emails rendered correctly across all email clients
+  img: assets/_img/emails-thumbnail.png
+  project-link: /emails
+  link:
+
+- title: Photography
+  text: Works of portraits, landscapes and everyday moments
+  img: assets/_img/chicago-adventure.jpg
+  project-link: /photography
+  link:

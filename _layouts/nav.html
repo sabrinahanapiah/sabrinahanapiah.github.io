@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="site-nav">
+              {%- assign default_paths = site.pages | map: "path" -%}
+              {%- assign page_paths = site.header_pages | default: default_paths -%}
+              <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+                JEKYLL<br>
+                JEKYLL
+              </a>
+
+              {%- if page_paths -%}
+              <div class="mobile-logo">
+                <a href="#_">JJ</a>
+              </div>
+
+              <div class="page-menu">
+                        <a class="page-link" href="{{ my_page.url | relative_url }}">LINK</a>
+                        <a class="page-link" href="{{ my_page.url | relative_url }}">LINK</a>
+              </div>
+            </nav>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="container" style="height: 1000px">
+        
+      </div>
+    </main>
+
+  </body>
+
+</html>

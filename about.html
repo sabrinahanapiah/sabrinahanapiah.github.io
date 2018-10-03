@@ -1,105 +1,23 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>About | Sabrina Hanapiah</title>
-  <meta name="author" content="Sabrina Hanapiah">
-  <meta name="description" content="Front-end web developer designing, developing, and doing in NYC." />
-  <meta name="keywords" content="front-end web development, NYC">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="css/screen.css" media="screen">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <![endif]-->
+---
+layout: default
+title: About
+permalink: /about
+---
+<div class="row">
+	<div class="col-md-9">
+		<h1>{{ page.title }}</h1>
+	</div>
+</div>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-40276253-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-</head>
-<body>
-  <!--  nav -->
-  <nav>
-    <div class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">SABRINA<br>HANAPIAH</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse cl-effect-3" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!--  /nav -->
-
-  <!-- main content -->
-  <div class="container">
-    <h1>About</h1>
-    <div class="row">
-
-      <div class="col-sm-12 col-md-4">
-        <img class="img-responsive" src="img/DSCF6461_1200.jpg" alt="Sabrina Hanapiah">
-      </div>
-
-      <div class="col-sm-12 col-md-6 col-md-offset-1">
-
-        <h3 class="about__heading">Education</h3>
-        <p>I graduated in 2014 with a Bachelor's in Information Technology from Penn State University. My studies focused on web and mobile development with a minor in design. Frustrated in a lot websites being functional but not aesthetically pleasing, web development was a perfect way for me to visualize better interfaces and see it come to life through coding.</p>
-
-        <h3 class="about__heading">Present</h3>
-        <p>I have a passion for learning and a curiosity for exploring new boundaries, and this keeps me updated on current web technologies. I pick things up quickly, know how to take criticism, and respond well to feedback all while performing in a demanding, fast-paced environment.</p>
-
-        <p>When I'm not coding, you can find me traveling, dabbling in photography, collaborating with other creative minds, hanging out at coffee shops, eating nachos or biking.</p>
-
-        <div class="hidden-xs" style="margin-bottom: 40px"></div>
-        <p>Find me on <a href="http://www.instagram.com/sabrinahanapiah" target="_blank">Instagram</a> and <a href="http://www.twitter.com/sabbygee" target="_blank">Twitter</a>.</p>
-
-      </div>
-
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-  <!-- /main-content -->
-
-  <!-- .footer -->
-  <footer class="footer">
-    <div class="container">
-      <h4 class="footer-heading">Contact</h4>
-      <ul class="list-unstyled">
-        <li>Sabrina Hanapiah</li>
-        <li>Front-End Web Developer</li>
-        <li>Brooklyn, NY</li>
-        <li><a href="mailto:sabrinahanapiah@gmail.com">sabrinahanapiah@gmail.com</a></li>
-      </ul>
-    </div>
-  </footer>
-  <!-- /.footer -->
-
-  <!-- .copyright -->
-  <div class="copyright">
-    <div class="container">
-      <p class="text-center">Made with <span class="glyphicon glyphicon-heart-empty"></span> by Sabrina Hanapiah</p>
-    </div>
-  </div><!-- .copyright -->
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+<div class="row work-row">
+	<div class="col-md-5">
+		<img src="../assets/_img/profile.jpg">
+	</div>
+  <div class="col-md-7">
+		<h3>Education</h3>
+    <p>I graduated in 2014 with a Bachelor's in Information Technology from Penn State University. My studies focused on web and mobile development with a minor in design. Frustrated in a lot websites being functional but not aesthetically pleasing, web development was a perfect way for me to visualize better interfaces and see it come to life through coding.</p>
+		<h3>Current</h3>
+		<p>I have a passion for learning and a curiosity for exploring new boundaries, and this keeps me updated on current web technologies. I pick things up quickly, know how to take criticism, and respond well to feedback all while performing in a demanding, fast-paced environment.</p>
+		<p>When I'm not coding, you can find me traveling, dabbling in photography, collaborating with other creative minds, hanging out at coffee shops, eating nachos or biking.</p>
+  </div>
+</div>
