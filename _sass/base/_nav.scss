@@ -73,6 +73,8 @@ nav {
 	border: 7px solid $light-green;
 	border-radius: 50%;
 	z-index: 1001;
+	position: fixed;
+  margin-top: 20px;
 
 	a {
 		color: $light-green;

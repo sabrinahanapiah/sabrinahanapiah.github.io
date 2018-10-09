@@ -1,6 +1,6 @@
 - title: Spotify Player Web API
   project-description: This is a minimal visualization using Spotify's API. This app make calls to Spotify endpoints to grab the current playing song and renders the JSON data to display the title, artist and current position of the song, which is synced with a music progress bar below. Two of the last playing songs also appear below.
-  secondary-link: Since Spotify's access tokens refresh every hour, I've coded the call for a refresh token to refresh every 50 minutes in the background for a seamless experience.
+  secondary-link: Since Spotify's access tokens refresh every hour, I've coded the call for a refresh token to refresh every 50 minutes in the background for a seamless experience. To see the example visual player, you must be logged into Spotify, playing a song.
   secondary-img: assets/_img/spotify-api-screenshot.png
   project-link: /spotify-player
   link-appearance: http://hi-spotify.herokuapp.com
