@@ -18,7 +18,7 @@ nav {
 	width: 100%;
 
 	.site-title {
-		color: $light-green;
+		color: $lightest-blue;
 		font-family: $primary-font;
 		font-style: italic;
 		font-size: 24px;
@@ -38,7 +38,7 @@ nav {
 	.page-menu {
 		.page-link {
 			display: inline-block;
-			color: $light-green;
+			color: $lightest-blue;
 			border: none;
 			font-family: $primary-font;
 			font-size: 18px;
@@ -68,16 +68,16 @@ nav {
 	font-size: 28px;
 	padding: 10px;
 	transform: rotate(-10deg);
-	color: $light-green;
+	color: $lightest-blue;
 	padding: 5px 15px 10px;
-	border: 7px solid $light-green;
+	border: 7px solid $lightest-blue;
 	border-radius: 50%;
 	z-index: 1001;
 	position: fixed;
   margin-top: 20px;
 
 	a {
-		color: $light-green;
+		color: $lightest-blue;
 	}
 
 	&:after {

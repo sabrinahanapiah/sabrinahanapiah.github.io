@@ -21,6 +21,7 @@
 		line-height: 1.2;
 		margin-top: 0.6em;
 		margin-bottom: 0.3em;
+		font-style: italic;
 
 		&:after {
 			@include shortUnderline($white);
@@ -34,4 +35,3 @@
 		text-decoration: underline;
 	}
 }
-

@@ -1726,7 +1726,7 @@ nav {
   align-items: center;
   width: 100%; }
   nav .site-title {
-    color: #ADC698;
+    color: #70C7EA;
     font-family: "Open Sans", Arial, sans-serif;
     font-style: italic;
     font-size: 24px;
@@ -1739,7 +1739,7 @@ nav {
     display: none; }
   nav .page-menu .page-link {
     display: inline-block;
-    color: #ADC698;
+    color: #70C7EA;
     border: none;
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 18px;
@@ -1763,13 +1763,15 @@ nav {
   font-size: 28px;
   padding: 10px;
   transform: rotate(-10deg);
-  color: #ADC698;
+  color: #70C7EA;
   padding: 5px 15px 10px;
-  border: 7px solid #ADC698;
+  border: 7px solid #70C7EA;
   border-radius: 50%;
-  z-index: 1001; }
+  z-index: 1001;
+  position: fixed;
+  margin-top: 20px; }
   .mobile-logo a {
-    color: #ADC698; }
+    color: #70C7EA; }
   .mobile-logo:after {
     margin: 0;
     padding: 0;
@@ -1846,7 +1848,8 @@ nav {
     font-size: 12rem;
     line-height: 1.2;
     margin-top: 0.6em;
-    margin-bottom: 0.3em; }
+    margin-bottom: 0.3em;
+    font-style: italic; }
     .error-content h1:after {
       content: '';
       display: block;
