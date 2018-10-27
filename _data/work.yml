@@ -17,17 +17,17 @@
   project-link: /bcc
   link: http://nullrefer.com/?http://buckscountyclassic.com/
 
-- title: Paul B Moyer
-  text: Built the front-end template for paulbmoyer.com
-  img: assets/_img/pbmoyer-animation.gif
-  project-link: /pbmoyer
-  link: http://nullrefer.com/?http://www.paulbmoyer.com
-
 - title: Spotify Player API
   text: Coded a visual player using Spotify's API
   img: assets/_img/spotify-api-screenshot.png
   project-link: /spotify-player
   link: http://hi-spotify.herokuapp.com
+
+- title: Paul B Moyer
+  text: Built the front-end template for paulbmoyer.com
+  img: assets/_img/pbmoyer-animation.gif
+  project-link: /pbmoyer
+  link: http://nullrefer.com/?http://www.paulbmoyer.com
 
 - title: GNL
   text: Crafted a new, responsive website for Global Net Lease (NYSE:GNL)
@@ -47,8 +47,8 @@
   project-link: /emails
   link:
 
-- title: Photography
-  text: Works of portraits, landscapes and everyday moments
-  img: assets/_img/chicago-adventure.jpg
-  project-link: /photography
-  link:
+# - title: Photography
+#   text: Works of portraits, landscapes and everyday moments
+#   img: assets/_img/chicago-adventure.jpg
+#   project-link: /photography
+#   link:

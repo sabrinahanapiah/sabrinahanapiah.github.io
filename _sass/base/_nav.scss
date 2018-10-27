@@ -65,16 +65,14 @@ nav {
 
 .mobile-logo {
 	font-weight: 800;
-	font-size: 28px;
+	font-size: 18px;
 	padding: 10px;
 	transform: rotate(-10deg);
 	color: $lightest-blue;
 	padding: 5px 15px 10px;
-	border: 7px solid $lightest-blue;
-	border-radius: 50%;
 	z-index: 1001;
-	position: fixed;
-  margin-top: 20px;
+	line-height: 1;
+	text-transform: uppercase;
 
 	a {
 		color: $lightest-blue;
@@ -105,7 +103,7 @@ nav {
 	@include media-breakpoint-down(md) {
 		display: none;
 		align-self: center;
-		padding: 9rem 1rem 1rem 1rem;
+		padding: 5rem 1rem 1rem 1rem;
     position: fixed;
     top: 0;
     left: 0;

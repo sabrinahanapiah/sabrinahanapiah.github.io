@@ -1570,6 +1570,8 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.8; }
+  body.fixed {
+    position: fixed; }
 
 p {
   font-size: 1.3em;
@@ -1760,16 +1762,14 @@ nav {
 
 .mobile-logo {
   font-weight: 800;
-  font-size: 28px;
+  font-size: 18px;
   padding: 10px;
   transform: rotate(-10deg);
   color: #70C7EA;
   padding: 5px 15px 10px;
-  border: 7px solid #70C7EA;
-  border-radius: 50%;
   z-index: 1001;
-  position: fixed;
-  margin-top: 20px; }
+  line-height: 1;
+  text-transform: uppercase; }
   .mobile-logo a {
     color: #70C7EA; }
   .mobile-logo:after {
@@ -1791,7 +1791,7 @@ nav {
   .page-menu {
     display: none;
     align-self: center;
-    padding: 9rem 1rem 1rem 1rem;
+    padding: 5rem 1rem 1rem 1rem;
     position: fixed;
     top: 0;
     left: 0;
