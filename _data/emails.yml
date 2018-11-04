@@ -3,7 +3,10 @@
   img: assets/_img/jet-welcome.png
   secondary-img: assets/_img/jet-social.png
   tertiary-img: assets/_img/jet-livetext.png
-  project-link: /bcc
+  quaternary-img: assets/_img/jet-jetlabs.png
+  quinary-img: assets/_img/crowdjoy-welcome.png
   link: assets/emails/jet-welcome.html
-  secondary-link: assets/emails/jet-livetext.html
-  tertiary-link: assets/emails/jet-jetlabs.html
+  secondary-link: assets/emails/jet-social.html
+  tertiary-link: assets/emails/jet-livetext.html
+  quaternary-link: assets/emails/jet-jetlabs.html
+  quinary-link: assets/emails/crowdjoy-welcome.html
