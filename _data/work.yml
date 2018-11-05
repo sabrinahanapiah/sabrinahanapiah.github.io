@@ -1,9 +1,9 @@
 # Controls the projects shown on the home page.
-- title: D3 website
-  text: Coded using SASS, React.js and Gatbsy as a static site generator
-  img: assets/_img/d3-thumbnail.gif
-  project-link: /current
-  link: http://nullrefer.com/?http://d3-nyc.com
+# - title: D3 website
+#   text: Coded using SASS, React.js and Gatbsy as a static site generator
+#   img: assets/_img/d3-thumbnail.gif
+#   project-link: /current
+#   link: http://nullrefer.com/?http://d3-nyc.com
 
 - title: Crowdjoy
   text: Coded a responsive site for an event app platform
@@ -41,11 +41,11 @@
   project-link: /skywalls
   link: http://nullrefer.com/?http://skywalls.com/
 
-- title: Email Development
-  text: Coded and ensured all emails rendered correctly across all email clients
-  img: assets/_img/emails-thumbnail.png
-  project-link: /emails
-  link:
+# - title: Email Development
+#   text: Coded and ensured all emails rendered correctly across all email clients
+#   img: assets/_img/emails-thumbnail.png
+#   project-link: /emails
+#   link:
 
 # - title: Photography
 #   text: Works of portraits, landscapes and everyday moments
