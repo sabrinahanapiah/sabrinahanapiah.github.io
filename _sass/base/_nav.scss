@@ -87,8 +87,6 @@ nav {
 	}
 
 	&:hover {
-		transform: rotate(350deg);
-    	transition: all 0.3s ease-in-out;
 	}
 
 	@include media-breakpoint-up(lg) {

@@ -1579,7 +1579,7 @@ p {
 
 li {
   font-size: 1em;
-  font-weight: 300; }
+  font-weight: 400; }
 
 img {
   max-width: 100%;
@@ -1777,9 +1777,6 @@ nav {
     padding: 0;
     width: 23px;
     margin-left: -3px; }
-  .mobile-logo:hover {
-    transform: rotate(350deg);
-    transition: all 0.3s ease-in-out; }
   @media (min-width: 992px) {
     .mobile-logo {
       display: none; } }
@@ -1864,7 +1861,7 @@ nav {
     text-decoration: underline; }
 
 /*---------------
-  PROJECT PAGES
+  PROJECTS
 ---------------*/
 .project-description {
   margin-bottom: 1.3em; }
@@ -1873,7 +1870,7 @@ nav {
 
 .project-link {
   color: #008CBA;
-  font-weight: 300; }
+  font-weight: 400; }
 
 .project-specs li {
   list-style-type: square; }
