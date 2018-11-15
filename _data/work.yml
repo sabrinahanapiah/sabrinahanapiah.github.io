@@ -41,11 +41,11 @@
   project-link: /skywalls
   link: http://nullrefer.com/?http://skywalls.com/
 
-- title: Email Development
-  text: Coded and ensured all emails rendered correctly across all email clients
-  img: assets/_img/emails-thumbnail.png
-  project-link: /emails
-  link:
+# - title: Email Development
+#   text: Coded and ensured all emails rendered correctly across all email clients
+#   img: assets/_img/emails-thumbnail.png
+#   project-link: /emails
+#   link:
 
 # - title: Photography
 #   text: Works of portraits, landscapes and everyday moments
