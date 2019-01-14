@@ -1,0 +1,30 @@
+---
+layout: home
+exclude: true
+---
+
+<div class="row work-row parallax-front">
+	<div class="col-md-12">
+		{% assign count = 0 %}
+		{% for work in site.data.work limit:4 %}
+		<div class="row">
+			<div class="col-md-6">
+				<a href="{{ work.project-link }}">
+					<div class="work-thumbnail">
+						<img class="img-fluid" src="{{ work.img }}" alt="">
+						<div class="work-thumbnail-caption">
+							<h2>{{ work.title }}</h2>
+							<p>{{ work.text }}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn blue" href="/work"><span>More Projects</span></a>
+			</div>
+		</div>
+	</div>
+</div>

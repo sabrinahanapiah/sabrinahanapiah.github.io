@@ -3,11 +3,12 @@
 ---------------*/
 
 body {
-	background-color: $grey;
+	background-color: $white;
 	color: #333333;
-	font-family: $primary-font;
+	font-family: $secondary-font;
 	font-size: $font-size-base;
 	line-height: 1.8;
+	overflow-x: hidden;
 
 	&.fixed {
 		position: fixed;
@@ -15,8 +16,9 @@ body {
 }
 
 p {
-	font-size: 1.3em;
-	font-weight: 300;
+	font-size: 1.4em;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
 }
 
 li {
@@ -30,7 +32,7 @@ img {
 }
 
 a {
-	color: $navy;
+	color: $red;
 	text-decoration: none;
 }
 
@@ -39,11 +41,19 @@ h1 {
 	font-weight: 800;
 	margin: 0 0 0.5em;
 	text-transform: uppercase;
-	color: $navy;
+	color: $red;
 
 	&:after {
-		@include shortUnderline($navy);
+		@include shortUnderline($red);
 	}
+
+	@include media-breakpoint-down(xs) {
+		font-size: 1.7em;
+	}
+}
+
+h2{
+	font-family: $primary-font;
 }
 
 h3 {
@@ -52,23 +62,34 @@ h3 {
   text-transform: none;
 }
 
+.page-content {
+	padding: 50px 0 0;
+}
+
 
 /*---------------
   HOME
 ---------------*/
 
-.page-content {
-	padding: 50px 0;
-}
-
 .home {
+
 	.home-intro {
-		margin-bottom: 50px;
+		background-color: transparent;
+		padding: 0 0 50px;
+		margin-bottom: -170px;
+		min-height: 500px;
 	}
+
 	h1 {
+		color: $white;
 		margin-bottom: 1.5em;
 		line-height: 1.7em;
+
+		&:after {
+			@include shortUnderline($shock);
+		}
 	}
+
 	h1:first-child {
 		margin: 0;
 
@@ -76,20 +97,80 @@ h3 {
 			display: none;
 		}
 	}
+
+	p {
+		color: $white;
+	}
+
+	.ledge {
+		position: absolute;
+		bottom: 30%;
+		left: 50%;
+		z-index: -1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: -285px;
+			left: 41px;
+			background: linear-gradient(to right, #efb066, #f2b76e, #f5be76, #f8c57e, #fbcc86);
+			transform: rotate(-6deg);
+			transform-origin: 50% 0;
+			width: 200vw;
+			height: 300vw;
+			margin-left: -150vw;
+		}
+	}
+}
+
+.intro {
+	background-color: transparent;
+	color: $white;
+	padding: 0 0 20px;
+	margin-bottom: -170px;
+	min-height: 440px;
+
+	h1 {
+		color: $white;
+
+		&:after {
+			@include shortUnderline($shock);
+		}
+	}
+}
+
+.ledge {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	z-index: -1;
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: -285px;
+		left: 41px;
+		background: linear-gradient(to right, #efb066, #f2b76e, #f5be76, #f8c57e, #fbcc86);
+		transform: rotate(-6deg);
+		transform-origin: 50% 0;
+		width: 200vw;
+		height: 300vw;
+		margin-left: -150vw;
+	}
 }
 
 .work-row {
-	.col-lg-6:nth-child(1n) {
+	.col-md-6:nth-child(1n) {
 		clear: left;
 	}
-	.col-lg-6:nth-child(2n) {
+	.col-md-6:nth-child(2n) {
 		clear: right;
 	}
 }
 
 .work-thumbnail {
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 
 	img {
 		box-shadow: 2px 3px 10px rgba(0,0,0,.25);
@@ -99,7 +180,7 @@ h3 {
 }
 
 .work-thumbnail-caption {
-	background-color: rgba(44, 62, 80, 0.9);
+	background-color: rgba(225, 112, 83, 0.9);
 	position:absolute;
 	display: block;
 	top:0;
@@ -111,14 +192,14 @@ h3 {
 	opacity: 0;
 	z-index: 0;
 
-    &:hover {
-    	opacity: 1;
-    	cursor: pointer;
-    	-webkit-transition: all 0.5s ease;
-	    -moz-transition: all 0.5s ease;
-	    -o-transition: all 0.5s ease;
-	    transition: all 0.5s ease;
-    }
+  &:hover {
+  	opacity: 1;
+  	cursor: pointer;
+  	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
 
 	h2 {
 		color: #FFFFFF;
@@ -141,51 +222,146 @@ h3 {
 }
 
 .btn {
-    display: block;
-    margin: 1em 0;
-    padding: 1em 2em;
-    background: transparent;
-    border-radius: 3px;
-    font-weight: 400;
-    text-align: center;
-    outline: none;
+	align-self: center;
+	background: transparent;
+	border-radius: 3px;
+  display: block;
+	font-family: $primary-font;
+  margin: 1em 0;
+  padding: 1em 2em;
+  text-align: center;
+  outline: none;
 
-    &:hover {
-    	transform: translate(-3px,-3px);
-    	// box-shadow: 2px 2px 0px rgba(150, 150, 150, 0.8);
-    	-webkit-transition: all 0.5s ease;
-	    -moz-transition: all 0.5s ease;
-	    -o-transition: all 0.5s ease;
-	    transition: all 0.5s ease;
-    }
+  &:hover {
+  	transform: translate(-3px,-3px);
+  	// box-shadow: 2px 2px 0px rgba(150, 150, 150, 0.8);
+  	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
 }
 
-.btn {
-    align-self: center;
-}
+.expand {
+  padding: .75em;
+  font-size: 3em;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: 1px;
 
-.blue {
-    padding: .75em;
-    font-size: 3em;
-    font-weight: 100;
-    line-height: 1;
-    letter-spacing: 1px;
-
-		@include media-breakpoint-down(md) {
-			font-size: 2em;
+	@include media-breakpoint-down(md) {
+		font-size: 2em;
 	}
 }
 
-.blue span {
-    background: -webkit-linear-gradient(left, #46bfec, #6854a0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    font-weight: 800;
+.expand span {
+  background: -webkit-linear-gradient(left,  #e17053, #efb066);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
 .show {
+	@include media-breakpoint-down(md) {
+		display: flex;
+	}
+}
+
+.work-row .col-lg-6:nth-child(2n+1) {
+	clear: both;
+}
+
+
+/*---------------
+  SKILLS
+---------------*/
+
+.home-resume {
+	background-image: linear-gradient(to right, #efb066, #f2b76e, #f5be76, #f8c57e, #fbcc86);
+	padding: 200px 0;
+	color: $white;
+	position: relative;
+	overflow-x: hidden;
+
+	h2 {
+		color: $white;
+		text-align: center;
+		text-transform: uppercase;
+
+		&:after {
+			@include shortUnderline($shock);
+			margin: 15px auto 25px;
+		}
+	}
+}
+
+.skills-icon {
+	float: right;
+	margin-right: 50px;
+
+	@include media-breakpoint-down(md) {
+		float: none;
+		margin-right: 0;
+		text-align: center;
+	}
+
+	svg {
 		@include media-breakpoint-down(md) {
-			display: flex;
+			width: 150px;
+	    height: 150px;
+		}
+	}
+}
+
+.skills-list {
+	li {
+		list-style: none;
+	}
+}
+
+.home-svg {
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: 10vw;
+  transform: rotate(180deg);
+}
+
+.intro-svg {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 10vw;
+	transform: rotateX(180deg);
+}
+
+.contact-svg {
+	position: absolute;
+	bottom: -1px;
+	width: 100%;
+	height: 10vw;
+	fill: #db8a61 !important;
+}
+
+
+/*---------------
+  CONTACT
+---------------*/
+
+.home-contact {
+	background: #db8a61;
+	padding: 60px 0 80px;
+	position: relative;
+
+	h2 {
+		color: $white;
+		text-align: center;
+		text-transform: uppercase;
+
+		&:after {
+			@include shortUnderline($shock);
+			margin: 15px auto 25px;
+		}
 	}
 }

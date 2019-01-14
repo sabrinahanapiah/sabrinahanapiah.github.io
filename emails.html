@@ -3,55 +3,60 @@ layout: default
 title: HTML emails
 permalink: /emails
 exclude: true
+tag: project
 ---
 
 {% for work in site.data.emails %}
-<div class="project-description">
-	<div class="row">
-		<div class="col-md-12">
-			<h1>Background</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<p>{{ work.project-description }}</p>
-		</div>
-		<div class="col-md-6">
-			<h3>Skills</h3>
-			<ul class="project-specs">
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Email service provider quirks</li>
-			</ul>
-		</div>
-	</div>
-</div>
-
 <div class="row">
-	<div class="col-lg-4">
-		<a href="{{ work.link }}">
-			<img class="project-screenshot img-fluid" src="../{{ work.img }}" alt="">
-		</a>
-	</div>
-	<div class="col-lg-4">
-		<a href="{{ work.secondary-link }}">
-			<img class="project-screenshot img-fluid" src="../{{ work.secondary-img }}" alt="">
-		</a>
-	</div>
-	<div class="col-lg-4">
-		<a href="{{ work.tertiary-link }}">
-			<img class="project-screenshot img-fluid" src="../{{ work.tertiary-img }}" alt="">
-		</a>
-	</div>
-	<div class="col-lg-4">
-		<a href="{{ work.quaternary-link }}">
-			<img class="project-screenshot img-fluid" src="../{{ work.quatenary-img }}" alt="">
-		</a>
-	</div>
-	<div class="col-lg-4">
-		<a href="{{ work.quinary-link }}">
-			<img class="project-screenshot img-fluid" src="../{{ work.quinary-img }}" alt="">
-		</a>
+	<div class="col-xs-10 col-xs-push-1">
+		<div class="project-description">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Background</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p>{{ work.project-description }}</p>
+				</div>
+				<div class="col-md-6">
+					<h3>Skills</h3>
+					<ul class="project-specs">
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>Email service provider quirks</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4">
+				<a href="{{ work.link }}">
+					<img class="project-screenshot img-fluid" src="../{{ work.img }}" alt="">
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ work.secondary-link }}">
+					<img class="project-screenshot img-fluid" src="../{{ work.secondary-img }}" alt="">
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ work.tertiary-link }}">
+					<img class="project-screenshot img-fluid" src="../{{ work.tertiary-img }}" alt="">
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ work.quaternary-link }}">
+					<img class="project-screenshot img-fluid" src="../{{ work.quatenary-img }}" alt="">
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<a href="{{ work.quinary-link }}">
+					<img class="project-screenshot img-fluid" src="../{{ work.quinary-img }}" alt="">
+				</a>
+			</div>
+		</div>
 	</div>
 </div>
 {% endfor %}

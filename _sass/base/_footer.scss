@@ -3,27 +3,43 @@
 ---------------*/
 
 .footer {
-	background-color: $navy;
-	padding: 35px 0;
+	background-color: #e17053;
+	padding: 15px 0;
 	text-align: center;
 	color: $white;
 	font-weight: bold;
 
+	.contact-list {
+		float: left;
+	}
+
+	.social-list {
+		float: right;
+		margin-top: 5px;
+
+		.social-icon {
+			width: 20px;
+			margin-right: 5px;
+		}
+	}
 
 	ul{
 		display: inline;
 		list-style-type: none;
-		text-align: center;
+		margin: 0;
 		padding: 0;
+	}
+
+	li {
+		display: inline-block;
 	}
 
 	a,
 	.footer-email {
 		text-decoration: none;
-		color: $light-blue !important;
+		color: $white !important;
 		font-weight: normal;
 		display: block;
-		margin-top: 15px;
 	}
 
 	h3 {

@@ -2,8 +2,14 @@
   NAV
 ---------------*/
 
+.body-project, .body-about {
+	header {
+		background: linear-gradient(to right, #efb066, #f2b76e, #f5be76, #f8c57e, #fbcc86);
+	}
+}
+
 header {
-	background-color: #FFFFFF;
+	background: transparent;
 	padding: 20px 0;
 
 	@include media-breakpoint-up(md) {
@@ -18,12 +24,13 @@ nav {
 	width: 100%;
 
 	.site-title {
-		color: $lightest-blue;
+		color: $white;
 		font-family: $primary-font;
 		font-style: italic;
-		font-size: 24px;
+		font-size: 17px;
 		font-weight: 800;
 		line-height: 1.2;
+		text-decoration: none;
 		text-transform: uppercase;
 
 		&:hover {
@@ -38,13 +45,14 @@ nav {
 	.page-menu {
 		.page-link {
 			display: inline-block;
-			color: $lightest-blue;
+			color: $white;
 			border: none;
 			font-family: $primary-font;
-			font-size: 18px;
+			font-size: 17px;
 			font-weight: 800;
 			margin: 0 10px;
 			text-transform: uppercase;
+			text-decoration: none;
 
 			@include media-breakpoint-down(md) {
 				display: block;
@@ -67,15 +75,15 @@ nav {
 	font-weight: 800;
 	font-size: 18px;
 	padding: 10px;
-	// transform: rotate(-10deg);
-	color: $lightest-blue;
+	color: $white;
 	padding: 5px 15px 10px;
 	z-index: 1001;
 	line-height: 1;
 	text-transform: uppercase;
 
 	a {
-		color: $lightest-blue;
+		color: $white;
+		font-family: $primary-font;
 	}
 
 	&:after {
@@ -107,7 +115,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #FFFFFF;
+    background: $red;
 		text-align: center;
     flex-direction: row;
     z-index: 1000;

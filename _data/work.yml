@@ -5,6 +5,12 @@
   project-link: /current
   link: http://nullrefer.com/?http://d3-nyc.com
 
+- title: Spotify Player API
+  text: Coded a visual player using Spotify's API
+  img: assets/_img/spotify-api-screenshot.png
+  project-link: /spotify-player
+  link: http://hi-spotify.herokuapp.com
+
 - title: Crowdjoy
   text: Coded a responsive site for an event app platform
   img: assets/_img/cj-thumbnail.gif
@@ -16,12 +22,6 @@
   img: assets/_img/bcc-thumbnail.png
   project-link: /bcc
   link: http://nullrefer.com/?http://buckscountyclassic.com/
-
-- title: Spotify Player API
-  text: Coded a visual player using Spotify's API
-  img: assets/_img/spotify-api-screenshot.png
-  project-link: /spotify-player
-  link: http://hi-spotify.herokuapp.com
 
 - title: Paul B Moyer
   text: Built the front-end template for paulbmoyer.com

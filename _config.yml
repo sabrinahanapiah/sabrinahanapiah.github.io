@@ -6,12 +6,13 @@ location: Brooklyn, NY
 role: Front End Web Developer
 title: Hi, I'm Sabrina.
 sub-title: I'm a front-end web developer.
-description: I have a passion for visualizing and coding meaningful website experiences that are beautifully and intuitively crafted&mdash;that make life a little easier and more enjoyable for the user.
+description: I have a passion for coding beautiful, intuitive websites that people love to use.
 
 
 # social links
-twitter_username: sabbygee
-github_username:  sabrinahanapiah
+twitter: https://twitter.com/sabbygee
+instagram: https://instagram.com/sabrinahanapiah
+github:  https://github.com/sabrinahanapiah
 rss: rss
 
 show_excerpts: false # set to true to show excerpts on the homepage

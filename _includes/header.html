@@ -1,8 +1,11 @@
+<!-- {% if page.layout == 'home' %}
+<header class="site-header animated fadeInDown delay-3s" role="banner">
+{% endif %} -->
 <header class="site-header" role="banner">
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10 col-md-push-1">
         <nav class="site-nav">
           {%- assign default_paths = site.pages | map: "path" -%}
           {%- assign page_paths = site.header_pages | default: default_paths -%}

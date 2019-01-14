@@ -3,13 +3,25 @@
 
   {%- include head.html -%}
 
+  {% if page.layout == 'home' %}
+  <body class="body-home">
+  {% endif %}
+  {% if page.tag == 'project' %}
+  <body class="body-project">
+  {% endif %}
+  {% if page.title == 'About' %}
+  <body class="body-about">
+  {% endif %}
+
   <body>
 
     {%- include header.html -%}
     <main class="page-content" aria-label="Content">
       <div class="container-fluid">
-        <div class="col-md-10 col-md-push-1">
-          {{ content }}
+        <div class="row">
+          <div class="col-md-12">
+            {{ content }}
+          </div>
         </div>
       </div>
     </main>
