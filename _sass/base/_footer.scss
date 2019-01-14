@@ -3,7 +3,7 @@
 ---------------*/
 
 .footer {
-	background-color: #e17053;
+	background-color: $red;
 	padding: 15px 0;
 	text-align: center;
 	color: $white;
@@ -11,6 +11,10 @@
 
 	.contact-list {
 		float: left;
+
+		@include media-breakpoint-down(sm) {
+			float: none;
+		}
 	}
 
 	.social-list {
@@ -20,6 +24,11 @@
 		.social-icon {
 			width: 20px;
 			margin-right: 5px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			float: none;
+    	display: block;
 		}
 	}
 
@@ -39,7 +48,6 @@
 		text-decoration: none;
 		color: $white !important;
 		font-weight: normal;
-		display: block;
 	}
 
 	h3 {
