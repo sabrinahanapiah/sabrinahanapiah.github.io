@@ -64,6 +64,10 @@ h3 {
 
 .page-content {
 	padding: 50px 0 0;
+
+	@include media-breakpoint-down(xs) {
+		padding: 20px 0 0;
+	}
 }
 
 
@@ -196,6 +200,10 @@ h3 {
 	opacity: 0;
 	z-index: 0;
 
+	@include media-breakpoint-down(xs) {
+		padding: 14%;
+	}
+
   &:hover {
   	opacity: 1;
   	cursor: pointer;
@@ -211,17 +219,32 @@ h3 {
 		font-weight: bold;
 		text-transform: uppercase;
 		margin-top: 0;
-    	margin-bottom: 10.5px;
+  	margin-bottom: 10.5px;
 
-    	&:after {
-    		@include shortUnderline(#FFFFFF);
-    	}
+		@include media-breakpoint-down(xs) {
+			font-size: 16px;
+		}
+
+  	&:after {
+  		@include shortUnderline(#FFFFFF);
+
+			@include media-breakpoint-down(xs) {
+				width: 30px;
+		    margin-left: 3px;
+		    margin-top: 14px;
+		    border-width: 6px;
+			}
+  	}
 	}
 
 	p {
 		color: #FFFFFF;
 		font-size: 1.1em;
 		margin: 15px 0 10.5px;
+
+		@include media-breakpoint-down(xs) {
+			font-size: 0.9em;
+		}
 	}
 }
 
@@ -289,7 +312,7 @@ h3 {
 	overflow-x: hidden;
 
 	@include media-breakpoint-down(sm) {
-		padding: 120px 0;
+		padding: 120px 0 100px;
 	}
 
 	h2 {
@@ -368,6 +391,7 @@ h3 {
 	background: #db8a61;
 	padding: 60px 0 80px;
 	position: relative;
+	margin-top: -1px;
 
 	h2 {
 		color: $white;

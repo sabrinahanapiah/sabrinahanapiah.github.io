@@ -1627,6 +1627,9 @@ h3 {
 
 .page-content {
   padding: 50px 0 0; }
+  @media (max-width: 575.98px) {
+    .page-content {
+      padding: 20px 0 0; } }
 
 /*---------------
   HOME
@@ -1731,6 +1734,9 @@ h3 {
   padding: 15%;
   opacity: 0;
   z-index: 0; }
+  @media (max-width: 575.98px) {
+    .work-thumbnail-caption {
+      padding: 14%; } }
   .work-thumbnail-caption:hover {
     opacity: 1;
     cursor: pointer;
@@ -1745,6 +1751,9 @@ h3 {
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 10.5px; }
+    @media (max-width: 575.98px) {
+      .work-thumbnail-caption h2 {
+        font-size: 16px; } }
     .work-thumbnail-caption h2:after {
       content: '';
       display: block;
@@ -1752,10 +1761,19 @@ h3 {
       margin-left: 3px;
       margin-top: 24px;
       border-bottom: 7px solid #FFFFFF; }
+      @media (max-width: 575.98px) {
+        .work-thumbnail-caption h2:after {
+          width: 30px;
+          margin-left: 3px;
+          margin-top: 14px;
+          border-width: 6px; } }
   .work-thumbnail-caption p {
     color: #FFFFFF;
     font-size: 1.1em;
     margin: 15px 0 10.5px; }
+    @media (max-width: 575.98px) {
+      .work-thumbnail-caption p {
+        font-size: 0.9em; } }
 
 .btn {
   align-self: center;
@@ -1809,7 +1827,7 @@ h3 {
   overflow-x: hidden; }
   @media (max-width: 767.98px) {
     .home-resume {
-      padding: 120px 0; } }
+      padding: 120px 0 100px; } }
   .home-resume h2 {
     color: #fff;
     text-align: center;
@@ -1871,7 +1889,8 @@ h3 {
 .home-contact {
   background: #db8a61;
   padding: 60px 0 80px;
-  position: relative; }
+  position: relative;
+  margin-top: -1px; }
   .home-contact h2 {
     color: #fff;
     text-align: center;
@@ -1933,6 +1952,9 @@ nav {
       nav .page-menu .page-link {
         display: block;
         margin: 20px 0; } }
+  @media (min-width: 992px) {
+    nav .page-menu .home-link {
+      display: none; } }
 
 @media (max-width: 991.98px) {
   nav {

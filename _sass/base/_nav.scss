@@ -59,6 +59,12 @@ nav {
 				margin: 20px 0;
 			}
 		}
+
+		.home-link {
+			@include media-breakpoint-up(lg) {
+				display: none;
+			}
+		}
 	}
 }
 
