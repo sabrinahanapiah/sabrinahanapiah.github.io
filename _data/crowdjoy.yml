@@ -1,5 +1,5 @@
 - title: Crowdjoy
-  project-description: CrowdJoy (now acquired) was a mobile app that helped attendees navigate the crowds at events. I was the front-end developer leading the development of CrowdJoy's marketing site, making sure to maintain code that was clean, readable, and accessible within a huge site. Other works for this client included customizing HTML email templates and updating the CrowdJoy web app using React, SASS and other technologies.
+  project-description: CrowdJoy (now acquired) was a mobile app created to help attendees navigate the crowds at events. I was the front-end developer leading the development of CrowdJoy's marketing site, making sure to maintain code that was clean, readable, and accessible within a huge site. Other works for this client included customizing HTML email templates and updating the CrowdJoy web app using React, SASS and other technologies.
   secondary-link: <a class="project-link" href="assets/crowdjoy-demo/index.html">Click here for a demo of the homepage.</a>
   img: assets/_img/cj-menu.png
   secondary-img: assets/_img/cj-feature.png

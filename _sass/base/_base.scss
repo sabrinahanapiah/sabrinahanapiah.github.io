@@ -329,6 +329,10 @@ h3 {
 	li {
 		list-style: none;
 	}
+
+	@include media-breakpoint-down(xs) {
+		padding: 0;
+	}
 }
 
 .home-svg {

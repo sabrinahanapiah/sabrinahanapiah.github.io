@@ -1840,6 +1840,9 @@ h3 {
 
 .skills-list li {
   list-style: none; }
+@media (max-width: 575.98px) {
+  .skills-list {
+    padding: 0; } }
 
 .home-svg {
   position: absolute;

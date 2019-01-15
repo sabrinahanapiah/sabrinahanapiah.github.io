@@ -1,5 +1,5 @@
 - title: D3 website
-  project-description: The new website for D3 was coded using React.js since a handful of components are reused throughout the site. SASS was used to efficiently write and organize the CSS. and gatsby JS was used to generate the site.
+  project-description: The new website for D3 was coded using React.js because a handful of components were reused throughout the site. SASS was used to efficiently write and organize the CSS. and gatsby JS was used to generate the site.
   secondary-link:
   img: assets/_img/d3-thumbnail.gif
   project-link: /current
