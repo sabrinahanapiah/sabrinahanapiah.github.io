@@ -16,7 +16,11 @@
   <body>
 
     {%- include header.html -%}
-    <main class="page-content" aria-label="Content">
+    {% if page.layout == 'home' %}
+    <main class="home-content" aria-label="Content">
+      {% else %}
+      <main class="page-content" aria-label="Content">
+    {% endif %}
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">

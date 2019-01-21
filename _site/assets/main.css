@@ -1599,6 +1599,9 @@ img {
 a {
   color: #d5795b;
   text-decoration: none; }
+  a:hover {
+    opacity: 0.8;
+    transition: all 0.4s ease; }
 
 h1 {
   font-family: "Gilroy-ExtraBold", Arial, sans-serif;
@@ -1625,11 +1628,17 @@ h3 {
   font-weight: 600;
   text-transform: none; }
 
-.page-content {
+.home-content {
   padding: 50px 0 0; }
   @media (max-width: 575.98px) {
-    .page-content {
+    .home-content {
       padding: 20px 0 0; } }
+
+.page-content {
+  padding: 50px 0; }
+  @media (max-width: 575.98px) {
+    .page-content {
+      padding: 20px 0; } }
 
 /*---------------
   HOME
@@ -1663,7 +1672,7 @@ h3 {
   position: absolute;
   bottom: 30%;
   left: 50%;
-  z-index: -1; }
+  z-index: -2; }
   .home .ledge::before {
     content: '';
     position: absolute;
@@ -1935,6 +1944,7 @@ nav {
     text-decoration: none;
     text-transform: uppercase; }
     nav .site-title:hover {
+      opacity: 1;
       text-decoration: none; }
   nav .nav-trigger, nav .menu-icon {
     display: none; }
@@ -1946,12 +1956,53 @@ nav {
     font-size: 17px;
     font-weight: 800;
     margin: 0 10px;
+    position: relative;
     text-transform: uppercase;
     text-decoration: none; }
+    nav .page-menu .page-link:hover {
+      opacity: 1; }
     @media (max-width: 991.98px) {
       nav .page-menu .page-link {
+        font-size: 2rem;
         display: block;
         margin: 20px 0; } }
+    nav .page-menu .page-link span {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      padding: 0 7px;
+      z-index: 1; }
+      @media (max-width: 991.98px) {
+        nav .page-menu .page-link span {
+          padding: 0 10px; } }
+    nav .page-menu .page-link span:before, nav .page-menu .page-link span:after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 10px;
+      bottom: 15%;
+      margin-top: -1.4px;
+      z-index: -1; }
+      @media (max-width: 991.98px) {
+        nav .page-menu .page-link span:before, nav .page-menu .page-link span:after {
+          height: 14px; } }
+    nav .page-menu .page-link span:before {
+      left: -0.5px; }
+      @media (max-width: 991.98px) {
+        nav .page-menu .page-link span:before {
+          left: -2.5px; } }
+    nav .page-menu .page-link span:after {
+      right: 2.5px;
+      background: -webkit-linear-gradient(left, #e17053, #efb066);
+      transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    nav .page-menu .page-link span:hover:before {
+      width: 100%;
+      transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      background: -webkit-linear-gradient(left, #e17053, #efb066); }
+    nav .page-menu .page-link span:hover:after {
+      background: transparent;
+      width: 100%;
+      transition: 0s; }
   @media (min-width: 992px) {
     nav .page-menu .home-link {
       display: none; } }
@@ -1963,6 +2014,10 @@ nav {
     align-items: center;
     width: 100%; } }
 
+@media (max-width: 991.98px) {
+  .site-title {
+    display: none; } }
+
 .mobile-logo {
   font-weight: 800;
   font-size: 18px;
@@ -1971,6 +2026,7 @@ nav {
   padding: 5px 15px 10px;
   z-index: 1001;
   line-height: 1;
+  text-align: center;
   text-transform: uppercase; }
   .mobile-logo a {
     color: #fff;
@@ -2001,10 +2057,6 @@ nav {
     text-align: center;
     flex-direction: row;
     z-index: 1000; } }
-
-@media (max-width: 991.98px) {
-  .site-title {
-    display: none; } }
 
 /*---------------
   FOOTER
@@ -2077,6 +2129,14 @@ nav {
   .error-content a {
     color: #fff;
     text-decoration: underline; }
+
+/*---------------
+  ABOUT
+---------------*/
+.about h1 {
+  margin: 0 0 1.2em; }
+.about p:first-child {
+  margin-top: 0; }
 
 /*---------------
   PHOTOGRAPHY
