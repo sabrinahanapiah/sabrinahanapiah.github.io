@@ -33,3 +33,8 @@ plugins:
 
 include:
   - "_img"
+
+header_pages:
+  - work.html
+  - photography.html
+  - about.html

@@ -47,8 +47,8 @@
 #   project-link: /emails
 #   link:
 
-# - title: Photography
-#   text: Works of portraits, landscapes and everyday moments
-#   img: assets/_img/chicago-adventure.jpg
-#   project-link: /photography
-#   link:
+- title: Photography
+  text: Works of portraits, landscapes and everyday moments
+  img: assets/_img/chicago-adventure.jpg
+  project-link: /photography
+  link:

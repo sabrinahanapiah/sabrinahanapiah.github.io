@@ -18,6 +18,8 @@
     {%- include header.html -%}
     {% if page.layout == 'home' %}
     <main class="home-content" aria-label="Content">
+      {% else if page.title == 'Photography' %}
+      <main class="page-content photography-content" aria-label="Content">
       {% else %}
       <main class="page-content" aria-label="Content">
     {% endif %}

@@ -1,0 +1,36 @@
+# Controls the images shown on the photography page.
+- text: Text
+  img: assets/_img/parallax-1042.jpg
+
+- text: Text
+  img: assets/_img/parallax-1055.jpg
+
+- text: Text
+  img: assets/_img/parallax-1045.jpg
+
+- text: Text
+  img: assets/_img/parallax-vince.jpg
+
+- text: Text
+  img: assets/_img/parallax-5473.jpg
+
+- text: Text
+  img: assets/_img/parallax-0511.jpg
+
+- text: Text
+  img: assets/_img/parallax-nyc.jpg
+
+- text: Text
+  img: assets/_img/parallax-0728.jpg
+
+- text: Text
+  img: assets/_img/parallax-019.jpg
+
+- text: Text
+  img: assets/_img/parallax-4946.jpg
+
+# - text: Text
+#   img: assets/_img/parallax-albuquerque.jpg
+#
+# - text: text
+#   img: assets/_img/parallax-5414.jpg

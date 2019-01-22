@@ -1769,7 +1769,8 @@ h3 {
       width: 40px;
       margin-left: 3px;
       margin-top: 24px;
-      border-bottom: 7px solid #FFFFFF; }
+      border-bottom: 7px solid #FFFFFF;
+      margin-top: 15px; }
       @media (max-width: 575.98px) {
         .work-thumbnail-caption h2:after {
           width: 30px;
@@ -2141,43 +2142,43 @@ nav {
 /*---------------
   PHOTOGRAPHY
 ---------------*/
-.parallax {
-  display: block;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100vh;
-  left: 0;
-  position: relative; }
+@media (max-width: 575.98px) {
+  .photography-content .intro p {
+    font-size: 1.1em; } }
 
-.parallax-front {
-  display: block;
-  position: relative;
-  z-index: 1; }
-
-.parallax-back {
-  display: flex;
-  flex: 1 0 auto;
-  position: absolute;
-  top: 0;
-  height: 100vh;
-  transform: translateZ(-1px) scale(2);
-  z-index: -1; }
-
-.photography-home {
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll; }
-
-.photography-row .col-md-12 .row:nth-child(odd) .col-md-6 {
-  float: right; }
-
-.photography-row .col-md-12 .row:nth-child(n) .col-lg-6 {
-  margin-top: -120px; }
-
-.photography-row .col-md-12 .row .col-md-6 {
-  margin-bottom: 50px; }
+.grid {
+  margin: 0 auto; }
+  .grid .grid:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .grid .grid-sizer,
+  .grid .grid-item {
+    width: 32%; }
+    @media (max-width: 991.98px) {
+      .grid .grid-sizer,
+      .grid .grid-item {
+        width: 98%; } }
+    @media (max-width: 767.98px) {
+      .grid .grid-sizer,
+      .grid .grid-item {
+        width: 98%; } }
+    @media (max-width: 767.98px) {
+      .grid .grid-sizer,
+      .grid .grid-item {
+        width: 92%; } }
+  .grid .grid-item {
+    float: left;
+    padding: 8px; }
+    @media (max-width: 991.98px) {
+      .grid .grid-item {
+        padding: 4px; } }
+    @media (max-width: 767.98px) {
+      .grid .grid-item {
+        padding: 4px; } }
+  .grid .grid-item img {
+    display: block;
+    width: 100%; }
 
 /*---------------
   PROJECTS

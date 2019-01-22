@@ -240,6 +240,7 @@ h3 {
 
   	&:after {
   		@include shortUnderline(#FFFFFF);
+			margin-top: 15px;
 
 			@include media-breakpoint-down(xs) {
 				width: 30px;
