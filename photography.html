@@ -25,7 +25,7 @@ permalink: /photography/
 			<div class="grid-sizer"></div>
 			{% for photos in site.data.photography %}
 			<div class="grid-item">
-				<img class="" src="../{{ photos.img }}" alt="">
+				<img class="" src="../{{ photos.img }}" alt="{{ photos.text }}">
 			</div>
 			{% endfor %}
 	</div>

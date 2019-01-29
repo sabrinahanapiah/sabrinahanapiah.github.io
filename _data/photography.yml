@@ -1,36 +1,51 @@
 # Controls the images shown on the photography page.
-- text: Text
+- text: A rainbow caught over Happy Valley
   img: assets/_img/parallax-1042.jpg
 
-- text: Text
+- text: Memories in NYC
   img: assets/_img/parallax-1055.jpg
 
-- text: Text
+- text: Chicago, 2014
   img: assets/_img/parallax-1045.jpg
 
-- text: Text
+- text: Vincent at the MET
   img: assets/_img/parallax-vince.jpg
 
-- text: Text
+- text: Aisya, Williamsburg
   img: assets/_img/parallax-5473.jpg
 
-- text: Text
+- text: Versaemerge, Philadelphia
   img: assets/_img/parallax-0511.jpg
 
-- text: Text
+- text: The Concrete Jungle
   img: assets/_img/parallax-nyc.jpg
 
-- text: Text
+- text: Jen, 2013
   img: assets/_img/parallax-0728.jpg
 
-- text: Text
+- text: Pennsylvania, 2011
+  img: assets/_img/parallax-0672.jpg
+
+- text: Dreaming, 2010
   img: assets/_img/parallax-019.jpg
 
-- text: Text
+- text: Summers in the pool, 2013
+  img: assets/_img/parallax-0026.jpg
+
+- text: Ocean City, MD
+  img: assets/_img/parallax-119.jpg
+
+- text: Yosemite, 2015
+  img: assets/_img/parallax-5413.jpg
+
+- text: Josh, 2014
   img: assets/_img/parallax-4946.jpg
 
-# - text: Text
-#   img: assets/_img/parallax-albuquerque.jpg
-#
-# - text: text
-#   img: assets/_img/parallax-5414.jpg
+- text: Happy Bones coffee shop
+  img: assets/_img/parallax-happy.jpg
+
+- text: Albuquerque, 2012
+  img: assets/_img/parallax-albuquerque.jpg
+
+- text: Big Sur, 2016
+  img: assets/_img/parallax-5414.jpg
