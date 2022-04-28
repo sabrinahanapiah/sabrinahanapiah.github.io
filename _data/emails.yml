@@ -3,12 +3,12 @@
   img: assets/_img/p-stats.png
   secondary-img: assets/_img/p-faves.png
   tertiary-img: assets/_img/p-scratchoff.png
-  quaternary-img: assets/_img/jet-uj.png
-  quinary-img: assets/_img/jet-livetext.png
-  senary-img: assets/_img/jet-jetlabs.png
+  quaternary-img: assets/_img/jet-livetext.png
+  quinary-img: assets/_img/jet-jetlabs.png
+  senary-img: assets/_img/jet-uj.png
   link: /p-stats
   secondary-link: assets/emails/p-faves-screenshot.html
   tertiary-link: assets/emails/p-scratchoff.html
-  quaternary-link: assets/emails/jet-uj.html
-  quinary-link: assets/emails/jet-livetext.html
-  senary-link: assets/emails/jet-jetlabs.html
+  quaternary-link: assets/emails/jet-livetext.html
+  quinary-link: assets/emails/jet-jetlabs.html
+  senary-link: assets/emails/jet-uj.html
