@@ -1,14 +1,14 @@
 - title: HTML emails
-  project-description: I've worked with big companies from NYRR to Jet.com, leading the email production of campaigns sent daily and seen by thousands. From leading a company's email system transition to using responsive, mobile friendly email templates to debugging and ensuring emails render the same across email clients to supporting customized webfont usgage and retina images in email designs, I have a multitude of HTML email experience.
-  img: assets/_img/jet-uj.png
-  secondary-img: assets/_img/jet-livetext.png
-  tertiary-img: assets/_img/jet-social.png
-  quaternary-img: assets/_img/jet-jetlabs.png
-  quinary-img: assets/_img/crowdjoy-welcome.png
-  # senary-img: assets/_img/jet-welcome.png
-  link: assets/emails/jet-uj.html
-  secondary-link: assets/emails/jet-livetext.html
-  tertiary-link: assets/emails/jet-social.html
-  quaternary-link: assets/emails/jet-jetlabs.html
-  quinary-link: assets/emails/crowdjoy-welcome.html
-  # senary-link: assets/emails/jet-welcome.html
+  project-description: I've worked with companies such as Conde Nast, Jet.com, NYRR and Pvolve, leading the email production of marketing and lifecycle campaigns. From spearheading a company's email transition to using responsive, mobile friendly email templates to debugging and ensuring emails render the same across email clients and devices to supporting personalization and dynamic content use cases, I have a multitude of HTML email coding experience.
+  img: assets/_img/p-stats.png
+  secondary-img: assets/_img/p-faves.png
+  tertiary-img: assets/_img/p-scratchoff.png
+  quaternary-img: assets/_img/jet-uj.png
+  quinary-img: assets/_img/jet-livetext.png
+  senary-img: assets/_img/jet-jetlabs.png
+  link: /p-stats
+  secondary-link: assets/emails/p-faves-screenshot.html
+  tertiary-link: assets/emails/p-scratchoff.html
+  quaternary-link: assets/emails/jet-uj.html
+  quinary-link: assets/emails/jet-livetext.html
+  senary-link: assets/emails/jet-jetlabs.html
